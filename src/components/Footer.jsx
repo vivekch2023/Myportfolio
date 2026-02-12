@@ -25,16 +25,14 @@ function Footer() {
         className="bg-gradient-to-r from-gray-900 to-gray-800 text-white pt-12 pb-6"
       >
         <div className="max-w-screen-2xl container mx-auto px-4 md:px-20">
-
           {/* ===== MAIN GRID ===== */}
           <div className="grid md:grid-cols-3 gap-8">
-
             {/* ABOUT */}
             <div>
               <h2 className="text-xl font-semibold mb-3">About Me</h2>
               <p className="text-sm text-gray-300">
-                AI/ML Engineer & Assistant Professor passionate about
-                teaching, research and modern web technologies.
+                AI/ML Engineer & Assistant Professor passionate about teaching,
+                research and modern web technologies.
               </p>
             </div>
 
@@ -42,10 +40,37 @@ function Footer() {
             <div>
               <h2 className="text-xl font-semibold mb-3">Quick Links</h2>
               <ul className="space-y-2 text-sm text-gray-300">
-                <li className="hover:text-white cursor-pointer duration-200">Github</li>
-                <li className="hover:text-white cursor-pointer duration-200">Resume</li>
-                <li className="hover:text-white cursor-pointer duration-200">Research paper</li>
-                {/* <li className="hover:text-white cursor-pointer duration-200">About</li> */}
+                <li>
+                  <a
+                    href="https://github.com/vivekch2023"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white duration-200"
+                  >
+                    GitHub
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="/resume.pdf"
+                    target="_blank"
+                    className="hover:text-white duration-200"
+                  >
+                    Resume
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://scholar.google.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white duration-200"
+                  >
+                    Research Paper
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -68,7 +93,6 @@ function Footer() {
 
           {/* ===== SOCIAL ICONS ===== */}
           <div className="flex justify-center space-x-6 mt-10">
-
             <motion.a
               whileHover={{ scale: 1.3, rotate: 10 }}
               href="https://www.facebook.com/profile.php?id=100012280126446"
@@ -115,7 +139,6 @@ function Footer() {
               Built with ❤️ using React & Tailwind
             </p>
           </div>
-
         </div>
       </motion.footer>
 
@@ -128,7 +151,6 @@ function Footer() {
       >
         <FaWhatsapp size={22} />
       </motion.a>
-
     </>
   );
 }
