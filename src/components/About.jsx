@@ -1,93 +1,250 @@
 import React from "react";
+import { motion } from "framer-motion";
+
+import {
+  FaUserGraduate,
+  FaChalkboardTeacher,
+  FaCertificate,
+  FaRunning,
+  FaBullseye,
+  FaBook,
+  FaInfoCircle,
+  FaBriefcase,
+  FaLayerGroup
+} from "react-icons/fa";
 
 function About() {
+
+  const left = {
+    hidden: { opacity: 0, x: -80 },
+    visible: { opacity: 1, x: 0 }
+  };
+
+  const right = {
+    hidden: { opacity: 0, x: 80 },
+    visible: { opacity: 1, x: 0 }
+  };
+
+  // ===== DATA SECTION WISE =====
+
+  const experience = [
+    {
+      year: "Oct-2025 – Present",
+      title: "Assistant Professor & HOD – BCA",
+      place: "Somany College",
+      desc: "Teaching Programming, Web Development, mentoring students, curriculum planning and academic coordination.",
+      side: "left",
+      icon: <FaChalkboardTeacher />
+    },
+    {
+      year: "Mar-2025 – Oct-2025",
+      title: "Computer Tranier",
+      place: "Shri Syam Infotech",
+      desc: "Teaching Programming, Web Development, mentoring students,",
+      side: "Right",
+      icon: <FaChalkboardTeacher />
+    },
+  ];
+
+  const education = [
+    {
+      year: "2023 - 2025",
+      title: "Post Graduation – MCA",
+      place: "Babu Banarasi Das University, Lucknow (226028)",
+      desc: "Master of Computer Application.",
+      side: "right",
+      icon: <FaUserGraduate />
+    },
+    {
+      year: "2019 - 2022",
+      title: "Graduation – B.Sc",
+      place: "MMM PG College, Deoria (274702)",
+      desc: "Bachelor of Science.",
+      side: "left",
+      icon: <FaUserGraduate />
+    },
+    {
+      year: "2017 - 2019",
+      title: "Intermediate",
+      place: "MMM Inter College, Deoria",
+      desc: "Higher secondary education.",
+      side: "right",
+      icon: <FaBook />
+    },
+    {
+      year: "2016 - 2017",
+      title: "High School",
+      place: "Tulshi Balika Inter College, Deoria",
+      desc: "Secondary education.",
+      side: "left",
+      icon: <FaBook />
+    },
+  ];
+
+  const courses = [
+    {
+      year: "2023",
+      title: "ADCA – Advance Diploma in Computer Application",
+      place: "Computer Education",
+      desc: "MS Office, Internet, programming basics.",
+      side: "right",
+      icon: <FaCertificate />
+    },
+    {
+      year: "2023",
+      title: "ITI – Industrial Training Institute",
+      place: "Technical Training",
+      desc: "Industrial and practical skills.",
+      side: "left",
+      icon: <FaCertificate />
+    },
+    {
+      year: "2019",
+      title: "CCC – Course on Computer Concepts",
+      place: "NIELIT",
+      desc: "Fundamental IT literacy.",
+      side: "right",
+      icon: <FaCertificate />
+    },
+  ];
+
+  const activities = [
+    {
+      year: "NSS",
+      title: "National Service Scheme",
+      place: "Extracurricular",
+      desc: "Social service and leadership activities.",
+      side: "left",
+      icon: <FaRunning />
+    },
+  ];
+
+  const mission = [
+    {
+      year: "Goal",
+      title: "Mission Statement",
+      place: "Teaching & Development",
+      desc: "Empower students with technical skills and connect academics with industry.",
+      side: "right",
+      icon: <FaBullseye />
+    },
+  ];
+
+  // ===== TIMELINE COMPONENT =====
+
+  const Timeline = ({ data }) => (
+    <div className="relative mb-16">
+
+      <div className="absolute left-1/2 w-1 bg-green-500 h-full transform -translate-x-1/2 hidden md:block"></div>
+
+      {data.map((item, index) => (
+        <motion.div
+          key={index}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={item.side === "left" ? left : right}
+          className={`mb-8 flex flex-col md:flex-row items-center w-full ${
+            item.side === "left" ? "md:flex-row" : "md:flex-row-reverse"
+          }`}
+        >
+
+          <div className="w-full md:w-1/2 p-4">
+            <div className="bg-gray-50 shadow-lg rounded p-4 hover:scale-105 duration-300">
+
+              <div className="flex items-center gap-2">
+                <span className="text-green-600 text-xl">
+                  {item.icon}
+                </span>
+
+                <h3 className="font-bold text-green-700">
+                  {item.year}
+                </h3>
+              </div>
+
+              <h2 className="font-semibold text-lg">
+                {item.title}
+              </h2>
+
+              <p className="text-sm text-gray-600">
+                {item.place}
+              </p>
+
+              <p className="mt-1">
+                {item.desc}
+              </p>
+
+            </div>
+          </div>
+
+          <div className="w-10 h-10 rounded-full bg-green-500 border-4 border-white z-10 flex items-center justify-center text-white text-lg">
+            {item.icon}
+          </div>
+
+          <div className="w-full md:w-1/2"></div>
+
+        </motion.div>
+      ))}
+    </div>
+  );
+
+  // ===== RETURN =====
+
   return (
-    <div
-      name="About"
-      className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-20"
-    >
-      <div>
-        <h1 className="text-3xl font-bold mb-5">About</h1>
-        <p>
-        Hello! I am Vivek Chauhan, a 2nd year student pursuing MCA(Master Of Computer Application) at BBDU (Babu Banarsi Das University Lucknow ).
-        I am passionate about Development, and I believe in hard work to acheive the goals.
-        </p>
-        <br />
-        <h1 className="text-green-600 font-semibold text-xl">
-          Education
-        </h1>
-        <span>
-        <ul>
-<li>High School- Tulshi Balika Inter College Nonar pandey Akathi Bazar Deoria (274702)</li><br/>
-<li>InterMediate-Modan Mohan malviya Inter College Bhatpar Rani Deoria  (274702)</li><br/>
-<li>Graduation (B.Sc)- Modan Mohan malviya PG College Bhatpar Rani Deoria  (274702)</li><br/>
-<li>Post Graduation (MCA)-Babu Banarsi Das University Lucknow (226028)</li>
+    <div className="max-w-screen-2xl container mx-auto px-4 md:px-20 my-20 pt-16">
 
+      {/* ========== ABOUT ME ========== */}
 
-</ul>
-        </span>
-        
-        <br />
-        <h1 className="text-green-600 font-semibold text-xl">
-        Additional Courses 
-        </h1>
-        <span>
-          
-      
-<ul>
-    <li>CCC-(Course on Computer Concepts)</li><br/>
-    <li>ITI-(Industrial Training Institute)</li><br/>
-    <li>ADCA-(Advance Deploma in Computer Application)</li> <br />
-    <li>  Mobile Application Development</li>
+      <h1 className="text-3xl font-bold mb-6 text-center flex items-center justify-center gap-2">
+        <FaInfoCircle className="text-green-600" /> About Me
+      </h1>
 
-</ul>
+    <p className="text-center mb-10 leading-relaxed">
+  Hello! I am <b>Vivek Chauhan</b>, an MCA graduate, AI/ML Engineer,
+              and Data Scientist, currently working as{" "}
+              <b>Assistant Professor & HOD in BCA Department</b> at{" "}
+              <b>Somany Institute of Technology & Management, Rewari</b>. I am
+              passionate about teaching, software development, and emerging
+              technologies like Artificial Intelligence, Machine Learning. I
+              believe in practical learning, innovation, and continuous skill
+              enhancement to achieve professional excellence. My goal is to
+              guide students toward industry-ready skills, problem-solving
+              ability, and strong technical foundations while contributing to
+              research and modern technological development.
+</p>
 
-</span>
         
-        <br />
-        <h1 className="text-green-600 font-semibold text-xl">
-        Extracurricular activities 
-        </h1>
-        <span>
-          
-      
-<ul>
-<li>NSS-(National Service Scheme)</li>
-</ul>
-        </span>
-        
-        {/* <br />
-        <h1 className="text-green-600 font-semibold text-xl">
-          Professional Experience
-        </h1>
-        <span>
-          [Job Title], [Company/Organization], [Dates] [Brief description of
-          responsibilities and achievements] [Job Title],
-          [Company/Organization], [Dates] [Brief description of responsibilities
-          and achievements] [Freelance/Contract Work], [Client/Organization],
-          [Dates] [Brief description of projects and contributions]
-        </span>
-        <br />
-        <br /> */}
-        {/* <h1 className="text-green-600 font-semibold text-xl">
-          Achievements & Awards
-        </h1>
-        <span>
-          [Award/Recognition], [Organization/Institution], [Year] [Achievement],
-          [Organization/Platform], [Year]
-        </span> */}
-        <br />
-        
-        <h1 className="text-green-600 font-semibold text-xl">
-          Mission Statement
-        </h1>
-        <p>
-        Hello! I am Vivek Chauhan, a 1St year student pursuing MCA(Master Of Computer Application) at BBDU (Babu Banarsi Das University Lucknow ).
-        I am passionate about Development, and I believe in hard work to acheive the goals.
-        </p>
-      </div>
+
+      {/* ========== SECTIONS ========== */}
+
+      <h2 className="text-2xl font-bold text-center mb-4 flex items-center justify-center gap-2">
+        <FaBriefcase className="text-green-600"/> Professional Experience
+      </h2>
+      <Timeline data={experience} />
+
+      <h2 className="text-2xl font-bold text-center mb-4 flex items-center justify-center gap-2">
+        <FaUserGraduate className="text-green-600"/> Education
+      </h2>
+      <Timeline data={education} />
+
+      <h2 className="text-2xl font-bold text-center mb-4 flex items-center justify-center gap-2">
+        <FaCertificate className="text-green-600"/> Additional Courses
+      </h2>
+      <Timeline data={courses} />
+
+      <h2 className="text-2xl font-bold text-center mb-4 flex items-center justify-center gap-2">
+        <FaLayerGroup className="text-green-600"/> Extracurricular Activities
+      </h2>
+      <Timeline data={activities} />
+
+      <h2 className="text-2xl font-bold text-center mb-4 flex items-center justify-center gap-2">
+        <FaBullseye className="text-green-600"/> Mission
+      </h2>
+      <Timeline data={mission} />
+
     </div>
   );
 }
 
 export default About;
+
