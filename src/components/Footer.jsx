@@ -63,7 +63,7 @@ function Footer() {
 
                 <li>
                   <a
-                    href="https://scholar.google.com/"
+                    href="https://www.ijariit.com/manuscripts/v10i6/V10I6-1425.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-white duration-200"
